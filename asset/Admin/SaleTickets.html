@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale List</title>
+    <link rel="stylesheet" href="../CSS/Adminpanel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <h2>Red<span class="danger">Store</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="ManagerUser.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Users</h3>
+                </a>
+                <a href="History.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>History</h3>
+                </a>
+                <a href="Adminpanel.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="Tickets.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Tickets</h3>
+                    <span class="message-count">27</span>
+                </a>
+                <a href="SaleTickets.html" class="active">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Sale List</h3>
+                </a>
+                <a href="Reports.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="Settings.html">
+                    <span class="material-icons-sharp"></span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp"></span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h2>Sale List</h2>
+            <div class="sale-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer Name</th>
+                            <th>Order Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="saleTableBody">
+                        tbody>
+                        <!-- Sample row, replace with dynamic data in real app -->
+                        <tr>
+                            <td>001</td>
+                            <td>John Doe</td>
+                            <td>2024-11-11</td>
+                            <td>$200</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Jane Smith</td>
+                            <td>2024-11-10</td>
+                            <td>$350</td>
+                            <td>Pending</td>
+                        </tr>
+                        <!-- Add more rows as necessary -->
+                    </tbody>
+                    </tbody>
+                </table>
+                <button onclick="addSale()" class="add-User-btn">Thêm Người Dùng</button>
+            </div>
+        </main>
+
+    <script src="../JS/SaleTickets.js"></script>
+</body>
+</html>
