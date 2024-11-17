@@ -749,3 +749,57 @@ main .recent-orders a{
 .sale-list table tbody tr td:last-child {
     color: var(--color-success); /* Hoặc var(--color-danger) cho các trạng thái khác nhau */
 }
+/* CSS cho bảng */
+/* CSS cho bảng và ô bảng */
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Poppins','sans-serif';
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Cho phép xuống dòng */
+    white-space: normal;  /* Đảm bảo chữ có thể xuống dòng */
+    max-width: 200px; /* Giới hạn chiều rộng tối đa của ô */
+    word-break: break-word; /* Ngắt từ dài thành nhiều dòng nếu cần */
+  }
+  
+  /* Thêm một chút kiểu dáng cho các nút */
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #2193b0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+  
+  button:hover {
+    background-color: #6dd5ed;
+  }
+  
+/* Responsive cho bảng */
+@media (max-width: 768px) {
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);   
+};

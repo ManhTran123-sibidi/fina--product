@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../CSS/Adminpanel.css">
 </head>
 <body>
+    <h1>User Management</h1>
+</div>
     <div class="container">
-        <!-- Sidebar Section -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -86,32 +87,48 @@
                 </a>
             </div>
         </aside>
-        <h1>User Management</h1>
-        
-        <!-- Form để thêm/sửa người dùng -->
-        <form id="user-form">
-            <input type="hidden" id="userId">
-            <input type="text" id="username" placeholder="Tên người dùng" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <button type="submit">Save</button>
-        </form>
-        
-        <!-- Bảng hiển thị danh sách người dùng -->
-        <table id="user-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên</th>
-                    <th>Email</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody id="user-list">
-                <!-- Dòng người dùng sẽ được tạo động bằng JavaScript -->
-            </tbody>
-        </table>
+        <div class="user-table">
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ và Tên</th>
+                        <th>Email</th>
+                        <th>Vai trò</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày đăng ký</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Các dòng dữ liệu sẽ được thêm vào đây thông qua JavaScript -->
+                    <tr>
+                        <td>1</td>
+                        <td>Tran Linh Manh</td>
+                        <td>tranhongminh21072007@gmail.com</td>
+                        <td>Admin</td>
+                        <td>Active</td>
+                        <td>2024-11-10</td>
+                        <td><button class="editButton" data-id="1">Chỉnh sửa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="userFormContainer" style="display: none;">
+                <form id="addUserForm">
+                    <input type="text" id="name" placeholder="Họ và Tên" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="text" id="role" placeholder="Vai trò" required>
+                    <input type="text" id="status" placeholder="Trạng thái" required>
+                    <input type="date" id="registrationDate" required>
+                    <button type="submit">Lưu</button>
+                    <button type="button" id="cancelBtn">Hủy</button>
+                </form>
+            </div>    
+            <button id="addUserButton">Thêm người dùng</button>
+        </div>
     </div>
+    <script src="../JS/Users.js">
 
-    <script src="script.js"></script>
+    </script>
 </body>
 </html>
