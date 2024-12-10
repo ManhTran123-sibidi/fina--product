@@ -642,4 +642,41 @@ form a {
   margin-top: 8px;
   transform: translateX(100px);
   transition: transform 1s;
+};
+.dropdown-content {
+  display: none; /* Mặc định ẩn */
+  position: absolute;
+  top: 35px; /* Vị trí so với icon menu */
+  right: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Khi menu-dropdown được hover, hiển thị dropdown */
+.menu-dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Vô hiệu hóa các nút trong thanh điều hướng */
+.navbar a {
+  pointer-events: none;  /* Vô hiệu hóa sự kiện click */
+  opacity: 0.5;  /* Giảm độ sáng của nút */
+}
+
+.navbar a:focus, .navbar a:hover {
+  pointer-events: none;  /* Đảm bảo không có sự kiện xảy ra khi hover hoặc focus */
+  opacity: 0.5;  /* Vẫn giữ hiệu ứng mờ */
 }

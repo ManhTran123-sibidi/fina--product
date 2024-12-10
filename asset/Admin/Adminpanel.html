@@ -6,9 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/Adminpanel.css">
-    <title>Responsive Dashboard Design #1 | AsmrProg</title>
+    <title></title>
     <style>
-      
+      .hidden {
+    display: none;
+}
+
+#reminder-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+#reminder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#reminder-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#reminder-form button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#reminder-form button#cancel-btn {
+    background: #ccc;
+    color: black;
+}
+
     </style>
 </head>
 <body>
@@ -38,7 +79,7 @@
                     <span class="material-icons-sharp">
                        
                     </span>
-                    <h3>History</h3>
+                    <h3>Add Product</h3>
                 </a>
                 <a href="Adminpanel.html" class="active">
                     <span class="material-icons-sharp">
@@ -53,24 +94,8 @@
                     <h3>Tickets</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="SaleTickets.html">
-                    <span class="material-icons-sharp">
-                     
-                    </span>
-                    <h3>Sale List</h3>
-                </a>
-                <a href="Reports.html">
-                    <span class="material-icons-sharp">
-                        
-                    </span>
-                    <h3>Reports</h3>
-                </a>
-                <a href="Settings.html">
-                    <span class="material-icons-sharp">
-                        
-                    </span>
-                    <h3>Settings</h3>
-                </a>
+                
+                
                 <a href="#">
                     <span class="material-icons-sharp">
                       
@@ -81,7 +106,7 @@
                     <span class="material-icons-sharp">
                         logout
                     </span>
-                    <h3>Logout</h3>
+                    <button id="logout-btn">Logout</button>
                 </a>
             </div>
         </aside>
@@ -162,13 +187,15 @@
                         <h2>Ember</h2>
                         <p>6 Hours Ago</p>
                     </div>
+                    <!-- Nút More -->
                     <div class="user">
-                        <img src="../image/plus.png">
+                        <img src="../image/plus.png" alt="Add More">
                         <h2>More</h2>
                         <p>New User</p>
                     </div>
                 </div>
             </div>
+            
             <!-- End of New Users Section -->
 
             <!-- Recent Orders Table -->
@@ -282,7 +309,7 @@
                         <span class="material-icons-sharp">
                             add
                         </span>
-                        <h3>Add Reminder</h3>
+                       <h3>Add Reminder</h3>
                     </div>
                 </div>
 
@@ -292,9 +319,72 @@
 
 
     </div>
-
+    <div id="reminder-form-container" class="hidden">
+        <form id="reminder-form">
+            <h3>Add New Reminder</h3>
+            <label for="reminder-title">Title:</label>
+            <input type="text" id="reminder-title" placeholder="Enter title" required>
+            
+            <label for="reminder-time">Time:</label>
+            <input type="time" id="reminder-time" required>
+            
+            <button type="submit">Add Reminder</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+        </form>
+    </div>
+    <script>document.addEventListener('DOMContentLoaded', () => {
+        const addReminderBtn = document.querySelector('.add-reminder');
+        const remindersContainer = document.querySelector('.reminders');
+        const formContainer = document.getElementById('reminder-form-container');
+        const form = document.getElementById('reminder-form');
+        const cancelBtn = document.getElementById('cancel-btn');
+    
+        // Hiển thị form khi nhấn "Add Reminder"
+        addReminderBtn.addEventListener('click', () => {
+            formContainer.classList.remove('hidden');
+        });
+    
+        // Xử lý khi nhấn "Cancel"
+        cancelBtn.addEventListener('click', () => {
+            formContainer.classList.add('hidden');
+        });
+    
+        // Xử lý khi submit form
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+    
+            // Lấy thông tin từ form
+            const title = document.getElementById('reminder-title').value;
+            const time = document.getElementById('reminder-time').value;
+    
+            // Tạo nhắc nhở mới
+            const newReminder = document.createElement('div');
+            newReminder.classList.add('notification');
+            newReminder.innerHTML = `
+                <div class="icon">
+                    <span class="material-icons-sharp">event_note</span>
+                </div>
+                <div class="content">
+                    <div class="info">
+                        <h3>${title}</h3>
+                        <small class="text_muted">${time}</small>
+                    </div>
+                    <span class="material-icons-sharp">more_vert</span>
+                </div>
+            `;
+    
+            // Thêm nhắc nhở mới vào giao diện
+            remindersContainer.insertBefore(newReminder, addReminderBtn);
+    
+            // Ẩn form và reset dữ liệu
+            form.reset();
+            formContainer.classList.add('hidden');
+        });
+    });
+    </script>
     <script src="../JS/Order.js"></script>
     <script src="index.js"></script>
+    <script src="../JS/AddUser.js"></script>
 </body>
 
 </html>
